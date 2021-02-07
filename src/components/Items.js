@@ -6,9 +6,13 @@ export default function Items(props) {
 
     return (
         <div className="container">
+            <ul className="items">
             {itemsData.map((itemData => (
-                <Item name={itemData.name} price={itemData.price} description={itemData.description} />
+                <li key={itemData._id}>
+                    <Item name={itemData.name} price={itemData.price} description={itemData.description} />
+                </li>
             )))}
+            </ul>
         </div>
     )
 } 
