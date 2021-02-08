@@ -22,7 +22,7 @@ import MessageBox from "../components/MessageBox";
 
 export default function Home() {
     const [itemsData, setItems] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     
     useEffect(() => {
