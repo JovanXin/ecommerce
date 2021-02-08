@@ -1,5 +1,6 @@
 const { response } = require("express");
 const express = require("express");
+const cors = require("cors");
 const pool = require("./db")
 
 const app = express();
@@ -9,6 +10,7 @@ app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({
     extended: true
 })); // Parse URL-encoded bodies
+app.use(cors()); 
 
 app.get("/", (req, res) => {
     res.json({
@@ -18,9 +20,9 @@ app.get("/", (req, res) => {
 
 app.post("/items", async (req, res) => {
     try {
-        const { name } = req.body;
+        const { name, price, description } = req.body;
         const newItem = await pool.query(
-            "INSERT INTO item (name) VALUES ($1) RETURNING *", [name]
+            "INSERT INTO item (name, price, description) VALUES ($1, $2, $3) RETURNING *", [name, price, description]
         );
 
         res.json(newItem);
