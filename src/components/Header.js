@@ -1,9 +1,11 @@
 import React from "react";
+import Nav from "./Nav";
 
-export default function Header() {
+export default function Header(props) {
     return(
         <div>
-            <h1>Ecommerce App</h1>
+            <Nav />
+            <h1>{props.name}</h1>
         </div>
     )
 }

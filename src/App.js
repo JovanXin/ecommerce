@@ -1,15 +1,11 @@
 import React from "react";
-import Items from "./components/Items";
-import Header from "./components/Header";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import Switcher from "./Switcher";
 
 export default function App() {
     return (
-        <BrowserRouter>
-            <div>
-                <Header />
-                <Items/>
-            </div>
-        </BrowserRouter>
+        <div className="app">
+            <Switcher />
+        </div>
     )
 }
+
